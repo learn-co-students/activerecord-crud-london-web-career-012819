@@ -1,9 +1,3 @@
-# Replace the '__' in the below methods to to make the specs pass!
-# Each '__' corresponds to a single line of code you will need to write.
-# See the example below on the left and how it should look on the right.
-# def make_a_new_movie_instance    # def make_a_new_movie_instance
-#   movie = __                     #   movie = Movie.new
-# end                              # end
 require 'pry'
 
 def can_be_instantiated_and_then_saved
@@ -71,11 +65,11 @@ def can_update_using_update_method
 end
 
 def can_update_multiple_items_at_once
-  # Change title of all movies to "A Movie"
   5.times do |i|
     Movie.create(title: "Movie_#{i}", release_date: 2000+i)
   end
-  Movie.update_multiple
+  Movie.all.each{|movie|}
+  movie.update(title: "A Movie")}
 end
 
 def can_destroy_a_single_item
@@ -86,6 +80,6 @@ end
 def can_destroy_all_items_at_once
   10.times do |i|
     Movie.create(title: "Movie_#{i}")
-  end
+    end
   Movie.delete_all
 end
